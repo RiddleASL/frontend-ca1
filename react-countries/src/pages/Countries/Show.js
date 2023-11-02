@@ -2,9 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import CountryCard from '../../components/CountryCard'
 import { Col, Container, Row } from "react-bootstrap";
-import { wait } from "@testing-library/user-event/dist/utils";
 import BorderNation from "../../components/BorderNation";
 import CountryWheather from "../../components/CountryWheather"
 
