@@ -77,7 +77,9 @@ const Index = () => {
                 </Col>
             </Row>
             <Row className="g-3 pt-5" md={4}>
-                {cards}
+                {cards.length != 0?cards : <div className="spinner-border text-primary" role="status">
+                </div>}
+                
             </Row>
         </Container>
     )
