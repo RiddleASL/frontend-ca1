@@ -3,7 +3,6 @@ import { ReactComponent as Welcome } from "../images/Welcome.svg"
 import { ReactComponent as Countries } from "../images/Countries.svg"
 import { ReactComponent as Regions } from "../images/Regions.svg"
 import { Button, Col, Container, Row } from "react-bootstrap"
-import { Link, useHref } from "react-router-dom"
 
 const Home = () => {
     return (
@@ -16,7 +15,7 @@ const Home = () => {
             <Container>
                 <Row className="mt-5">
                     <Col>
-                        <Countries />
+                        <Countries className="img-fluid" />
                     </Col>
                     <Col className="d-flex align-items-center">
                         <div className="fs-2 lh-1 px-5">
@@ -48,7 +47,7 @@ const Home = () => {
                         </div>
                     </Col>
                     <Col>
-                        <Regions />
+                        <Regions className="img-fluid"  />
                     </Col>
                 </Row>
             </Container>

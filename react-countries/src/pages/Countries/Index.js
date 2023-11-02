@@ -1,4 +1,4 @@
-import { Row, Card, Col, Container, Button, InputGroup, Form } from "react-bootstrap"
+import { Row, Col, Container, InputGroup, Form } from "react-bootstrap"
 import CountryCard from "../../components/CountryCard"
 import axios from "axios"
 import * as React from "react"
@@ -7,18 +7,21 @@ const Index = () => {
     
     const [data, setData] = React.useState([])
     const [text, setText] = React.useState("")
-    const [cards, setCards] = React.useState([])
 
     React.useEffect(()=>{
         allCountries()
     },[])
+
+    React.useEffect(()=>{
+        handleSearch()
+    },[text])
 
     const allCountries = () => {
         axios.get("https://restcountries.com/v3.1/all").then((response)=>{
             setData(response.data)
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
         })
     }
 
@@ -27,37 +30,48 @@ const Index = () => {
             setData(response.data)
         })
         .catch(err => {
-            console.log(err);
+            allCountries()
+            // console.log(err);
         })
     }
 
-    // data.map((card,i) => {
-    //     return(
-    //         <CountryCard props={card} key={i}/>
-    //     )
-    // })
+    const cards = data.map((card,i) => {
+        return(
+            <CountryCard props={card} key={i}/>
+        )
+    })
 
     const handleText = (e) => {
         setText(e.target.value)
     }
 
     const handleSearch = () => {
-        searchCountries()
+        if(text === ""){
+            allCountries()
+        } else {
+            searchCountries()
+        }
+        
+    }
+
+    const handleEnter = (e) => {
+        if(e.key === "Enter"){
+            handleSearch()
+        }   
     }
 
     return(
         <Container>
-            <Row className="my-3">
-                <Col xs={2}>
-                    <Button className="w-100">Search</Button>
-                </Col>
-                <Col xs={6}>
+            <Row className="my-3 pt-5 d-flex justify-content-center">
+                <Col xs={8}>
                     <InputGroup>
                         <Form.Control
+                        className="py-3 fs-4"
                         placeholder="Country Common Name"
                         aria-label="Country Common Name"
                         aria-describedby="basic-addon1"
                         onChange={handleText}
+                        onKeyUp={handleEnter}
                         />
                     </InputGroup>
                 </Col>
