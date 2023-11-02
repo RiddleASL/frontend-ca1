@@ -31,7 +31,7 @@ const Index = () => {
         })
         .catch(err => {
             allCountries()
-            // console.log(err);
+            console.log(err);
         })
     }
 
