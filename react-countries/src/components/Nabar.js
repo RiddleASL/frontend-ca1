@@ -6,7 +6,7 @@ const Navbar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid px-5 mx-5 d-flex justify-content-between">
-                    <a className="navbar-brand" href="/"><Logo className="mx-auto"/><span className="fw-bold">Country Explorer</span></a>
+                    <a className="navbar-brand" href="/"><Logo className="img-fluid"/><span className="fw-bold">Country Explorer</span></a>
                     <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </Button>

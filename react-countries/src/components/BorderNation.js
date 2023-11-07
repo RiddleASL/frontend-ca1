@@ -21,7 +21,7 @@ const BorderNation = (props) => {
                 axios.get(`${API_URL}/${nation}`).then((nat)=>{
                     // console.log(nations.length < response.data[0].borders.length);
                     if(nations.length < response.data[0].borders.length){
-                        setNation((curr)=>[...curr, <CountryCard props={nat.data[0]} key={i}/>])
+                        setNation((curr) => [...curr, <CountryCard props={nat.data[0]} key={i}/>])
                     }
                 })
             })

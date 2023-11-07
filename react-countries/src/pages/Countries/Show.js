@@ -23,6 +23,7 @@ const Show = () => {
 	const getCard = () => {
 		axios.get(`${API_URL}/${cca3}`).then((response) => {
 			setCard(response.data[0]);
+			console.log(response.data[0]);
 		});
 	};
 
@@ -40,7 +41,7 @@ const Show = () => {
 										<h2>{card.name.common}</h2>
 										<h5>{nativeName.common}</h5>
 									</div>
-									<div className="border border-2 rounded" />
+									<div className="border border-2 rounded mx-3" />
 									<div>
 										<h2>{card.name.official}</h2>
 										<h5>{nativeName.official}</h5>
